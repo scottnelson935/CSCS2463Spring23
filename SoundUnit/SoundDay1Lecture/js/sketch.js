@@ -15,7 +15,7 @@ let button1, button2, button3, button4;
 function setup() {
   createCanvas(400, 400);
   sounds.toDestination();
-  // sound1.toDestination();
+  sound1.toDestination();
 
   button1 = createButton("Do We Love Weird Al?");
   button1.position(75, 50);
@@ -38,6 +38,7 @@ function draw() {
   background(150);
 }
 
+
 function keyPressed() {
   if (key === "1") {
     sounds.player("balloon").start();
@@ -49,7 +50,7 @@ function keyPressed() {
     sounds.player("TShort2").start();
   }
   // sound1.playbackRate = 0.5;
-  // sound1.start();
+  sound1.start();
 }
 
 function playSound(whichSound) {
