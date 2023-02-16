@@ -31,7 +31,7 @@ function setup() {
 
   button4 = createButton("What nationality is Weird Al?");
   button4.position(75, 200);
-  button4.mousePressed(() => playSound("TShort2"));
+  button4.mousePressed( () => playSound("TShort2"));
 }
 
 function draw() {
@@ -50,7 +50,7 @@ function keyPressed() {
     sounds.player("TShort2").start();
   }
   // sound1.playbackRate = 0.5;
-  sound1.start();
+  // sound1.start();
 }
 
 function playSound(whichSound) {
