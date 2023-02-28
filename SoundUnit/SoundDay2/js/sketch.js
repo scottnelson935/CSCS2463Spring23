@@ -15,6 +15,8 @@ let buttons = [];
 const delay = new Tone.FeedbackDelay("8n", 0.5);
 let delaySlider;
 let feedbackSlider;
+// let mainVol = new Tone.Volume(0, false);
+let volSlider;
 
 let purpleButton;
 
@@ -59,6 +61,11 @@ function setup() {
   feedbackSlider = createSlider(0., 1., 0.5, 0.05);
   feedbackSlider.mouseReleased( () => {
     delay.feedback.value = feedbackSlider.value();
+  });
+
+  volSlider = createSlider(-24, 0, -12, 0.05);
+  volSlider.mouseReleased( () => {
+    sounds.volume.value = volSlider.value();
   });
 
   // nxSlider.on('change', function (v) {
