@@ -2,35 +2,35 @@ let slider;
 
 const synth = new Tone.PluckSynth();
 const drum = new Tone.MembraneSynth({
-	"pitchDecay"  : 0.2 ,
-	"octaves"  : 2.2 ,
-	"oscillator"  : {
-		"type"  : "sine"
-}  ,
-	"envelope"  : {
-		"attack"  : 0.001 ,
-		"decay"  : 0.8 ,
-		"sustain"  : 0.01 ,
-		"release"  : 0.4 ,
-		"attackCurve"  : "exponential"
-	}
+  "pitchDecay": 0.2,
+  "octaves": 2.2,
+  "oscillator": {
+    "type": "sine"
+  },
+  "envelope": {
+    "attack": 0.001,
+    "decay": 0.8,
+    "sustain": 0.01,
+    "release": 0.4,
+    "attackCurve": "exponential"
+  }
 });
 const metal = new Tone.MetalSynth({
-	"frequency"  : 45 ,
-	"envelope"  : {
-		"attack"  : 0.001 ,
-		"decay"  : 0.4 ,
-		"release"  : 0.2
-	}  ,
-	"harmonicity"  : 8.5 ,
-	"modulationIndex"  : 40 ,
-	"resonance"  : 300 ,
-	"octaves"  : 1.5
+  "frequency": 45,
+  "envelope": {
+    "attack": 0.001,
+    "decay": 0.4,
+    "release": 0.2
+  },
+  "harmonicity": 8.5,
+  "modulationIndex": 40,
+  "resonance": 300,
+  "octaves": 1.5
 });
 
 const reverb = new Tone.JCReverb(0.4).toDestination();
 
-const osc = new Tone.OmniOscillator("C#4", "pwm").start();
+const osc = new Tone.OmniOscillator("C#4", "sine").start();
 const ampEnv = new Tone.AmplitudeEnvelope({
   attack: 0.1,
   decay: 0.2,
@@ -72,6 +72,10 @@ function setup() {
 
 function draw() {
   background(220);
+}
+
+function mousePressed() {
+  Tone.start();
 }
 
 function keyPressed() {
