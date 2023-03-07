@@ -1,5 +1,5 @@
 // Set up Tone
-let osc = new Tone.AMOscillator(pitch, 'sine', 'sine').start()
+let osc = new Tone.AMOscillator(600, 'sine', 'sine').start()
 let gain = new Tone.Gain().toDestination();
 let pan = new Tone.Panner().connect(gain);
 let ampEnv = new Tone.AmplitudeEnvelope({

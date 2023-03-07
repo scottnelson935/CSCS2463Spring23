@@ -29,4 +29,5 @@ function draw() {
 
 function mousePressed() {
   console.log('pressed');
+  // do something here
 }

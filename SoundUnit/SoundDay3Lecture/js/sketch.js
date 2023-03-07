@@ -1,5 +1,6 @@
 const synth = new Tone.Synth();
 
+
 let notes = {
 
   'a': 'C4',
@@ -13,6 +14,9 @@ let notes = {
 
 };
 
+let dur = 0;
+
+
 function setup() {
   createCanvas(400, 400);
   synth.toDestination();
@@ -23,7 +27,16 @@ function draw() {
 }
 
 function keyPressed() {
-  let whatNote = notes[key];
   console.log(whatNote);
-  synth.triggerAttackRelease(whatNote, "8n");
+  let whatNote = notes[key];
+  
+  if (keyCode === 32) {
+    dur += 1;
+  }
+
+  synth.triggerAttack(whatNote, now);
+}
+
+function keyRelease() {
+  synth.triggerRelease(now + dur/frameCount);
 }
