@@ -34,7 +34,9 @@ int sensorValue = 0;  // variable to store the value coming from the sensor
 void setup() {
   // declare the ledPin as an OUTPUT:
   pinMode(ledPin, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(9600);
+  digitalWrite(LED_BUILTIN, LOW);
 }
 
 void loop() {
