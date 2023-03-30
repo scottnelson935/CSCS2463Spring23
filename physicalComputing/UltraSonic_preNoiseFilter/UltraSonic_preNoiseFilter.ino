@@ -4,9 +4,9 @@
  * - GND  -> GND
 */
 
-int trigPin = 9;    // TRIG pin
+int trigPin = 9;    // TRIG pin ~
 int echoPin = 8;    // ECHO pin
-int ledPin = 3;
+int ledPin = 3;     // LED pin ~
 
 int ledBright = 0;
 
@@ -35,15 +35,14 @@ void loop() {
   distance_cm = 0.017 * duration_us;
 
   // distance
-  //distance_cm = map(duration_us, 0, 25, 0, 255);
-  ledBright = map(distance_cm, 0, 15, 0, 10);
+  ledBright = map(distance_cm, 0, 15, 0, 50);
 
   analogWrite(ledPin, ledBright);
   
   // print the value to Serial Monitor
-  Serial.print("distance: ");
-  Serial.print(distance_cm);
-  Serial.println(" cm");
+  //Serial.print("distance: ");
+  Serial.println(duration_us);
+  //Serial.println(" cm");
 
-  delay(500);
+  delay(1000);
 }
