@@ -19,7 +19,7 @@ function setup() {
 
     slider = createSlider(0, 255, 127);
     slider.position(10, 50);
-    slider.style('width', '100px');
+    slider.style('width', '300px');
   }
 }
 
@@ -39,13 +39,16 @@ function mouseMoved() {
 function draw() {
   background(220);
 
+  if (writer) {
+    writer.write(new Uint8Array([ slider.value() ]));
+  }
+
   if (reader) {
     serialRead();
   }
 
   if (activationState.active) {
-    text("cm: " + sensorData.cm, 10, 100);
-    text("inches: " + sensorData.inches, 10, 150);
+    text("Potentiometer value: " + sensorData.pot, 10, 100);
   }
 }
 
@@ -62,8 +65,9 @@ async function serialRead() {
       reader.releaseLock();
       break;
     }
-    console.log(value);
+    // console.log(value);
     sensorData = JSON.parse(value);
+    console.log(sensorData);
   }
 }
 
@@ -85,6 +89,8 @@ class LineBreakTransformer {
     // A container for holding stream data until a new line.
     this.chunks = "";
   }
+
+
 
   transform(chunk, controller) {
     // Append new chunks to existing chunks.
